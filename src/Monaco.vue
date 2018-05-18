@@ -99,7 +99,7 @@ module.exports = {
             }
         },
         fetchEditor() {
-            monacoLoader.load(this.createMonaco);
+            monacoLoader.load(this.srcPath,this.createMonaco);
         },
         createMonaco() {
             this.language == 'json' && monaco.languages.json.jsonDefaults.setDiagnosticsOptions({

@@ -4,10 +4,11 @@
     <Monaco
         height="600"
         language="json"
+        srcPath="/dist"
         :code="code"
         :options="options"
         :changeThrottle="500"
-        theme="vs-dark"
+        theme="vs"
         @mounted="onMounted"
         @codeChange="onCodeChange"
         :jsonSchemas="jsonSchemas"

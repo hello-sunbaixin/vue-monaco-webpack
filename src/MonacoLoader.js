@@ -1,9 +1,9 @@
 /*eslint-disable */
 module.exports = {
  
-  load(callback) {
+  load(srcPath = 'https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min',callback) {
     var requireConfig = {
-      paths: { vs: '/dist/vs' },
+      paths: { vs: `${srcPath}/vs` },
       'vs/nls': {
         availableLanguages: {
           '*': 'zh-cn'
@@ -11,10 +11,6 @@ module.exports = {
       }
     }
     var loaderUrl = `${requireConfig.paths.vs}/loader.js`;
-    // var context = window.monacaAmd || (window.monacaAmd = {
-    //   document: window.document
-    // });
-
     var context=window;
     var onGotAmdLoader = function() {
       if (context.__REACT_MONACO_EDITOR_LOADER_ISPENDING__) {

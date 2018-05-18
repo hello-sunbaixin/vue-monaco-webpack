@@ -1,8 +1,4 @@
-# vue-monaco-editor
-
-> !!!! This is not maintained !!!!
-
-> Monaco Editor Vue Component
+# vue-monaco-webpack
 
 > Based off [React Monaco Editor](https://github.com/superRaytin/react-monaco-editor)
 
@@ -11,13 +7,13 @@
 ## Setup
 
 ``` bash
-npm install vue-monaco-editor --save
+npm install vue-monaco-webpack --save
 ```
 
 ## Simple Vue Use
 
 ```js
-import MonacoEditor from 'vue-monaco-editor'
+import MonacoEditor from 'vue-monaco-webpack'
 
 // use in component
 export default {
@@ -38,7 +34,6 @@ export default {
 | theme | String | `vs-dark` | vs, hc-black, or vs-dark |
 | highlighted | Array[Object] | `[{ number: 0, class: ''}]` | Lines to highlight with numbers and `.classes` |
 | changeThrottle | Number(ms) | `0` |  throttle `codeChange` emit |
-|srcPath| String | `""` | see *Webpack Use* below
 | editorOptions | Object | Merged with defaults below | See [Monaco Editor Options](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) |
 
 ### Editor Default Options
@@ -87,7 +82,6 @@ module.exports = {
     return {
       code: '// Type away! \n',
       options: {
-        selectOnLineNumbers: false
       }
     };
   },
@@ -135,3 +129,10 @@ npm run dev
 ```
 
 Edit `src/App.vue`
+
+
+## 说明
+使用方法，可参见src／Monaco.vue 中使用方式
+
+## 特色
+支持可通过配置jsonSchemas，对编辑的json进行校验
