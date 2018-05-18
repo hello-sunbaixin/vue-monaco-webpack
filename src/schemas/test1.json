@@ -1,0 +1,20 @@
+{
+  "$id": "http://localhost:8080/dist/schemas/test1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties":
+  {
+    "p1":
+    {
+      "enum": ["v1", "v2"]
+    },
+    "p2":{
+       "$ref":"http://localhost:8080/dist/schemas/test2.json"
+    },
+    "p3":
+    {
+      "type": "string",
+      "description": "这是一个组件容器"
+    }
+  }
+}
