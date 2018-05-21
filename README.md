@@ -32,9 +32,7 @@ export default {
 | width | Number/String | `100%` ||
 | code | String | `// code \n` | Initial code to show |
 | theme | String | `vs-dark` | vs, hc-black, or vs-dark |
-| jsonSchemas | Array[Object] | `[{"$id": "test1.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "string"}]` | json-schemas|
+| jsonSchemas | Array[Object] |见代码| json-schemas|
 | changeThrottle | Number(ms) | `0` |  throttle `codeChange` emit |
 | editorOptions | Object | Merged with defaults below | See [Monaco Editor Options](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) |
 
