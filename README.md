@@ -32,7 +32,9 @@ export default {
 | width | Number/String | `100%` ||
 | code | String | `// code \n` | Initial code to show |
 | theme | String | `vs-dark` | vs, hc-black, or vs-dark |
-| highlighted | Array[Object] | `[{ number: 0, class: ''}]` | Lines to highlight with numbers and `.classes` |
+| jsonSchemas | Array[Object] | `[{"$id": "test1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string"}]` | json-schemas|
 | changeThrottle | Number(ms) | `0` |  throttle `codeChange` emit |
 | editorOptions | Object | Merged with defaults below | See [Monaco Editor Options](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) |
 
@@ -66,6 +68,7 @@ defaults: {
     language="typescript"
     :code="code"
     :editorOptions="options"
+    :jsonSchemas="jsonSchemas"
     @mounted="onMounted"
     @codeChange="onCodeChange"
     >
@@ -74,6 +77,8 @@ defaults: {
 
 *Parent*
 ```js
+//如果需要json-schemas来校验，需要引入json-schema,json-schema中必须有$id属性
+const jsonSchemas=[require('test1.json'),require('test2.json')]
 module.exports = {
   components: {
     Monaco
@@ -82,7 +87,8 @@ module.exports = {
     return {
       code: '// Type away! \n',
       options: {
-      }
+      },
+      jsonSchemas
     };
   },
   methods: {
@@ -95,6 +101,7 @@ module.exports = {
   }
 };
 ```
+
 
 ## Webpack Use
 
