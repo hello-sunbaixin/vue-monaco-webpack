@@ -1,16 +1,15 @@
 # vue-monaco-webpack
 
-> Based off [React Monaco Editor](https://github.com/superRaytin/react-monaco-editor)
-
-> [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
-
-## Setup
+## 简介
+基于monaco-editor改造成支持vue版本，并且使用webpack通用打包工具，最重要是如果编辑的是json，
+支持json-schema的校验。
+## 安装
 
 ``` bash
 npm install vue-monaco-webpack --save
 ```
 
-## Simple Vue Use
+## 基础用法
 
 ```js
 import MonacoEditor from 'vue-monaco-webpack'
@@ -23,7 +22,7 @@ export default {
 }
 ```
 
-## Component Props
+## 组件支持传递的属性
 
 | Option        | Type          | Default | Description
 |:-------------|:-------------|:-------|:-------|
@@ -32,13 +31,12 @@ export default {
 | width | Number/String | `100%` ||
 | code | String | `// code \n` | Initial code to show |
 | theme | String | `vs-dark` | vs, hc-black, or vs-dark |
-| jsonSchemas | Array[Object] | `[{"$id": "test1.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "string"}]` | json-schemas|
+| jsonSchemas | Array[Object] | schema的格式见代码实例 | json-schemas|
+|srcPath|String|/dist|monoca-editor最终被打包到的文件夹
 | changeThrottle | Number(ms) | `0` |  throttle `codeChange` emit |
 | editorOptions | Object | Merged with defaults below | See [Monaco Editor Options](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) |
 
-### Editor Default Options
+### 编辑器默认选项
 ```js
 defaults: {
   selectOnLineNumbers: true,
@@ -50,16 +48,15 @@ defaults: {
 }
 ```
 
-## Component Events
+## 组件支持的事件
 
-*These events are available to parent component*
 
 | Event        | Returns          | Description
 |:-------------|:-------------|:-------|
 |mounted|`editor`[editor instance]|Emitted when editor has mounted|
 |codeChange|`editor`[editor instance]|Emitted when code has changed|
 
-## Example
+## 使用实例
 
 *Component Implementation*
 ```vue
@@ -88,7 +85,7 @@ module.exports = {
       code: '// Type away! \n',
       options: {
       },
-      jsonSchemas
+      jsonSchemas//不是必传，用于json校验
     };
   },
   methods: {
@@ -103,9 +100,9 @@ module.exports = {
 ```
 
 
-## Webpack Use
+## Webpack使用
 
-By default, monaco-editor is loaded from a cdn asyncronously using `require`. To use a local copy of `monaco-editor` with webpack, we need to expose the dependency in our build directory:
+默认情况下，monaco-editor通过cdn的方式require，如果使用webpack的话，我们需要把依赖的monaco-editor拷贝到最终打包的目录，保证能正确引用到。
 
 `npm install copy-webpack-plugin --save-dev`
 
@@ -125,9 +122,9 @@ module.exports = {
 };
 ```
 
-Then, specify the build directory path in the `srcPath` prop. See `src/App.vue` for an example.
+`srcPath` 注意填上最终打包后的文件夹名称
 
-## Dev Use
+## 开发方式
 
 ```
 git clone [this repo] .
