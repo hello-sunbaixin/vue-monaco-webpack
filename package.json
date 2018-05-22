@@ -15,6 +15,14 @@
     "url": "https://github.com/hello-sunbaixin/vue-monaco-webpack/issues"
   },
   "author": "sunbaixin",
+  "keywords": [
+        "monaco",
+        "vue-monaco",
+        "vue-monaco-editor",
+        "vue-monaco-webpack",
+        "monaco-editor",
+        "vue-editor"
+    ],
   "license": "ISC",
   "dependencies": {
     "copy-webpack-plugin": "^4.5.1",
