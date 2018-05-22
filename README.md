@@ -1,5 +1,7 @@
 # vue-monaco-webpack
 
+> Based of [vue-monaco-editor](https://github.com/matt-oconnell/vue-monaco-editor)
+
 ## 简介
 基于monaco-editor改造成支持vue版本，并且使用webpack通用打包工具，最重要是如果编辑的是json，
 支持json-schema的校验。
